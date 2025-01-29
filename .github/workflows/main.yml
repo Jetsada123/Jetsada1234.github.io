@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ปั๊มเหรียญ</title>
+</head>
+<body>
+    <h1>ปั๊มเหรียญ</h1>
+    <p>จำนวนเหรียญของคุณ: <span id="coin-count">0</span></p>
+    <button onclick="pumpCoin()">ปั๊มเหรียญ!</button>
+
+    <script>
+        function pumpCoin() {
+            fetch('/pump')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('coin-count').innerText = data.coins;
+                });
+        }
+    </script>
+</body>
+</html>
